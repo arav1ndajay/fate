@@ -1,0 +1,6 @@
+*/__pycache__
+datasets/20ng
+datasets/ag
+datasets/reuters
+datasets/train*.csv
+datasets/test*.csv
