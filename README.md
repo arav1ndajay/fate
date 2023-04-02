@@ -38,7 +38,7 @@ To train and test the model:
 
 ```
 cd src
-python main.py --dataset ag --inlier_class 1
+python main.py --dataset ag --inlier_class 0
 ```
 
 Choose the dataset from ["ag", "20ng", "reuters"].
