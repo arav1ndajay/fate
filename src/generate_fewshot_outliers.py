@@ -22,12 +22,6 @@ class GenerateFewShotOutliers():
     all_possible_outlier_sentences = []
 
     for sset in self.subsets[dataset]:
-        
-        # special case for CLINIC150 as it does not have subsets
-        if self.dataset == "clinic150_od":
-          sentences = self.get_sentences(base_file_path + sset + ".txt")
-          outlier_sentences.extend(random.sample(sentences, self.num_outliers))
-          break
     
         if len(outlier_sentences) >= self.num_outliers:
           break

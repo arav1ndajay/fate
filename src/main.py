@@ -247,15 +247,12 @@ class FATEModel():
 
                 outputs, A = self.model(features)
 
-                I = torch.eye(5).to(self.device)
+                identity_mat = torch.eye(5).to(self.device)
                 CCT = A @ A.transpose(1, 2)
-                P = torch.mean((CCT.squeeze() - I) ** 2)
-
-                # regularization factor
-                loss_P = P*1.0
+                loss_2 = torch.mean((CCT.squeeze() - identity_mat) ** 2)
 
                 if include_regularization:
-                    loss = self.criterion(outputs, labels) + loss_P
+                    loss = self.criterion(outputs, labels) + loss_2
                 
                 else: loss = self.criterion(outputs, labels)
 
@@ -368,15 +365,12 @@ class FATEModel():
                 }
                 outputs, A = self.model(features)
 
-                I = torch.eye(5).to(self.device)
+                identity_mat = torch.eye(5).to(self.device)
                 CCT = A @ A.transpose(1, 2)
-                P = torch.mean((CCT.squeeze() - I) ** 2)
-
-                # regularization factor
-                loss_P = P*1.0
+                loss_2 = torch.mean((CCT.squeeze() - identity_mat) ** 2)
 
                 if include_regularization:
-                    loss = self.criterion(outputs, labels) + loss_P
+                    loss = self.criterion(outputs, labels) + loss_2
                     
                 else: loss = self.criterion(outputs, labels)
 
